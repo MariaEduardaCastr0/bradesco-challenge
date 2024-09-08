@@ -1,0 +1,21 @@
+<form  class="account_form" [formGroup]="accountForm" (ngSubmit)="handleSubmit()">
+  <label class="base-input">
+    <p class="label">Nome do titular</p>
+    <input type="text" formControlName="holder">
+  </label>
+  <label class="base-input">
+    <p class="label">Número da conta</p>
+    <input type="text" formControlName="number">
+  </label>
+  <label class="base-input">
+    <p class="label">Endereço</p>
+    <input type="text" formControlName="address">
+  </label>
+  <label class="base-input">
+    <p class="label">CPF</p>
+    <input type="text" formControlName="document">
+  </label>
+  <app-base-button type="submit" [disabled]="!isValidForm">
+    Cadastrar
+  </app-base-button>
+</form>

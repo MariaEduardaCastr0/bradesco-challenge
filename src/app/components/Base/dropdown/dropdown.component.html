@@ -1,0 +1,17 @@
+<section class="base-dropdown">
+  <section class="dropdown-active-content" (click)="handleClick($event)">
+    <ng-content></ng-content>
+  </section>
+  <app-base-card *ngIf="isOpen" class="dropdown-content">
+    <ul class="dropdown-options">
+      <li 
+        *ngFor="let opt of options"
+        class="dropdown-option"
+        (click)="handleCallbackOption(opt.callback)"
+      >
+        <app-base-icon [icon]="opt.icon"></app-base-icon>
+        {{ opt.label }}
+      </li>
+    </ul>
+  </app-base-card>
+</section>

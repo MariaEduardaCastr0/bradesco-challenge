@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bradesco": {
+    "bradesco-challenge": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bradesco",
+            "outputPath": "dist/bradesco-challenge",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bradesco:build"
+            "browserTarget": "bradesco-challenge:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bradesco:build:production"
+              "browserTarget": "bradesco-challenge:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bradesco:build"
+            "browserTarget": "bradesco-challenge:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "bradesco:serve"
+            "devServerTarget": "bradesco-challenge:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "bradesco:serve:production"
+              "devServerTarget": "bradesco-challenge:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "bradesco"
+  "defaultProject": "bradesco-challenge"
 }

@@ -1,0 +1,9 @@
+<main class="base-modal" *ngIf="isVisible" (click)="changeVisible(false)">
+  <app-base-card [showHeader]="true">
+    <header header class="modal-header">
+      <p class="modal-header__title">{{ title }}</p>
+      <app-base-icon icon="close" [clickable]="true" (click)="changeVisible(false)"></app-base-icon>
+    </header>
+    <ng-content></ng-content>
+  </app-base-card>
+</main>

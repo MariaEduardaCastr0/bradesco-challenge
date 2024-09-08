@@ -1,0 +1,28 @@
+<section class="accounts">
+  <app-custom-header [title]="'Contas'">
+    <!-- TODO: Adicionar botão de nova conta -->
+    <app-base-button (click)="openNewAccountModal()">
+      Nova Conta
+    </app-base-button>
+  </app-custom-header>
+  <section class="accounts__cards" *ngIf="!!accounts.length">
+    <app-base-card
+      *ngFor="let account of accounts"
+      class="account_card"
+      (clicked)="showAccountExtract(account)"
+    >
+      <section class="account_infos">
+        <p class="account_number">{{ account?.number }}</p>
+        <p class="account_holder">{{ account?.holder }}</p>
+        <p class="account_balance">R$ {{ account?.balance }}</p>
+      </section>
+    </app-base-card>
+  </section>
+  <section class="no__account" *ngIf="!accounts.length">
+    <p>Adicione uma conta para começar.</p>
+  </section>
+</section>
+
+<app-base-modal title="Adicionar nova conta" [isOpen]="newAccountModal" (close)="newAccountModal = false">
+  <app-account-form (onSubmit)="addAccount($event)"></app-account-form>
+</app-base-modal>

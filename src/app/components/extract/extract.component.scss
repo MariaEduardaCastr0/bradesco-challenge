@@ -1,0 +1,21 @@
+.extracts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+
+  &__list {
+
+  }
+
+  .no__selected__extract {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font: 600 18px "Poppins", sans-serif;
+    }
+  }
+}

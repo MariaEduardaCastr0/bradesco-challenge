@@ -1,0 +1,48 @@
+<section class="extracts">
+  <app-custom-header title="Extrato">
+    <app-base-dropdown [options]="actions">
+      <app-base-button>
+        <p>Nova Transação</p>
+        <app-base-icon icon="arrow_down"></app-base-icon>
+      </app-base-button>
+    </app-base-dropdown>
+  </app-custom-header>
+  <section class="extracts__list" *ngIf="filteredExtracts.length">
+    <ul>
+      <li
+        *ngFor="let item of filteredExtracts"
+      >
+        <p *ngIf="item.type === 'deposit'">Depósito de R$ {{ item.value }}</p>
+        <p *ngIf="item.type === 'transference'">
+          <span *ngIf="selectedAccountId === item.transferred_account.id">
+            Transferência enviada para {{ item.received_account.holder }} no valor de R$ {{ item.value }}
+          </span>
+          <span *ngIf="selectedAccountId === item.received_account.id">
+            Transferência recebida de {{ item.transferred_account.holder }} no valor de R$ {{ item.value }}
+          </span>
+        </p>
+      </li>
+    </ul>
+  </section>
+  <section class="no__selected__extract" *ngIf="!filteredExtracts.length">
+    <p>Selecione uma conta para visualizar o extrato.</p>
+  </section>
+</section>
+
+<!-- Deposit Modal -->
+<app-base-modal
+  title="Novo Depósito"
+  [isOpen]="depositModalModel" 
+  (close)="depositModalModel = false"
+>
+  <app-deposit-form (onSubmit)="submitDeposit($event)"></app-deposit-form>
+</app-base-modal>
+
+<!-- Transference Modal -->
+<app-base-modal
+  title="Nova Transferência" 
+  [isOpen]="transferenceModalModel" 
+  (close)="transferenceModalModel = false"
+>
+  <app-transference-form (onSubmit)="submitTransference($event)"></app-transference-form>
+</app-base-modal>

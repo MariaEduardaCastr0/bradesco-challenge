@@ -1,0 +1,20 @@
+<form class="deposit_form" [formGroup]="depositForm" (ngSubmit)="handleSubmit()">
+  <label class="base-select">
+    <p class="label">Conta</p>
+    <select formControlName="account">
+      <option 
+        *ngFor="let opt of accounts"
+        [ngValue]="opt"
+      >
+        <p>{{ opt.holder }} - {{ opt.number }}</p>
+      </option>
+    </select>
+  </label>
+  <label class="base-input">
+    <p class="label">Valor (R$)</p>
+    <input type="number" formControlName="value">
+  </label>
+  <app-base-button type="submit" [disabled]="!isValidForm">
+    Depositar
+  </app-base-button>
+</form>

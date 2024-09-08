@@ -1,0 +1,31 @@
+<form class="transference_form" [formGroup]="transferenceForm" (ngSubmit)="handleSubmit()">
+  <label class="base-select">
+    <p class="label">De:</p>
+    <select formControlName="transferred_account">
+      <option 
+        *ngFor="let opt of accounts"
+        [ngValue]="opt"
+      >
+        <p>{{ opt.holder }} - {{ opt.number }}</p>
+      </option>
+    </select>
+  </label>
+  <label class="base-select">
+    <p class="label">Para:</p>
+    <select formControlName="received_account">
+      <option 
+        *ngFor="let opt of accounts"
+        [ngValue]="opt"
+      >
+        <p>{{ opt.holder }} - {{ opt.number }}</p>
+      </option>
+    </select>
+  </label>
+  <label class="base-input">
+    <p class="label">Valor (R$)</p>
+    <input type="number" formControlName="value">
+  </label>
+  <app-base-button type="submit" [disabled]="!isValidForm">
+    Transferir
+  </app-base-button>
+</form>
