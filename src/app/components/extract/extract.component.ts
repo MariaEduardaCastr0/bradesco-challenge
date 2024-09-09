@@ -41,7 +41,7 @@ export class ExtractComponent implements OnInit {
 
   handleUpdateExtract(id: number) {
     this.selectedAccountId = id;
-    this.extracts = this.makeRequests.GET<{ account_id?: number }[]>({ name: "extracts" }) || [];
+    this.extracts = this.makeRequests.GET({ name: "extracts" }) || [];
   }
 
   openDepositModal() {

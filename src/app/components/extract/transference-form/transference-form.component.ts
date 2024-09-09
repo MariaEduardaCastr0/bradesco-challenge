@@ -55,13 +55,12 @@ export class TransferenceFormComponent implements OnInit {
         })
         this.makeRequest.UPDATE({ name: "accounts", payload: this.accounts });
         this.globalEvent.emitEvent({ name: "updateAccounts" })
+        this.onSubmit.emit({ ...this.transferenceForm.value });
+        this.transferenceForm.reset();
       } else {
-        console.log('Saldo insuficiente')
+        alert('Saldo insuficiente')
       }
 
-
-      this.onSubmit.emit({ ...this.transferenceForm.value });
-      this.transferenceForm.reset();
     }
   }
 
